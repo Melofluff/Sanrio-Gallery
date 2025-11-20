@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sanrio Character Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="title-wrap">
+      <h1 class="site-title">Sanrio Character Gallery</h1>
+      <p class="site-subtitle">Explore adorable Sanrio-inspired characters and learn their stories</p>
+    </div>
+    <nav class="top-nav">
+      <button data-tab="home" class="nav-btn active">🏠 Home</button>
+      <button data-tab="characters" class="nav-btn">🎀 Characters</button>
+      <button data-tab="favorites" class="nav-btn">💖 Favorites</button>
+      <button data-tab="about" class="nav-btn">⭐ About</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="home-hero">
+        <div class="hero-card">
+          <h2>Welcome!</h2>
+          <p>Discover adorable characters with full profiles — origins, personalities, friends, and fun facts. Tap a card to open the full profile.</p>
+          <div class="hero-actions">
+            <button class="primary" data-tab-target="characters">Browse Characters</button>
+            <button class="ghost" data-tab-target="about">Learn More</button>
+          </div>
+        </div>
+        <div class="pattern-surface"></div>
+      </div>
+    </section>
+
+    <section id="characters" class="page">
+      <div class="container">
+        <div class="controls">
+          <input id="searchInput" type="search" placeholder="Search characters..." aria-label="Search characters">
+        </div>
+        <div id="cards" class="cards-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="favorites" class="page">
+      <div class="container">
+        <h2>Your Favorites</h2>
+        <div id="favorites-grid" class="cards-grid"></div>
+      </div>
+    </section>
+
+    <section id="about" class="page">
+      <div class="container about-card">
+        <h2>About</h2>
+        <p>This is a kawaii-style, responsive demo app inspired by Hello Kitty fandom and Sanrio aesthetics. It uses pastel colors, rounded shapes, soft shadows, and small sparkles to create a playful look.</p>
+        <p>Swap in your own character images and profiles in <code>app.js</code>. Favorites persist in your browser via <code>localStorage</code>.</p>
+        <div class="import-export" style="margin-top:12px">
+          <h4>Profiles</h4>
+          <p>Export or import your edited character profiles (JSON).</p>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button id="exportProfilesBtn" class="primary">Export Profiles</button>
+            <label class="ghost" for="importProfilesInput" style="cursor:pointer;padding:10px 12px;border-radius:12px">Import Profiles</label>
+            <input id="importProfilesInput" type="file" accept="application/json" style="display:none" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="tiny-icons">🐱 🎀 🍮 🌟</div>
+      <small>Made with pastel love ✨</small>
+    </div>
+  </footer>
+
+  <!-- Detail modal -->
+  <div id="detailModal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-card">
+      <button id="closeModal" class="close">✕</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

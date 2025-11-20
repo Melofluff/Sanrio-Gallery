@@ -1,0 +1,90 @@
+:root{
+  --pink:#ffd7e6;
+  --baby-blue:#d9f0ff;
+  --lavender:#e9e0ff;
+  --soft-yellow:#fff4c2;
+  --muted:#6b6b78;
+  --card-shadow: 0 8px 18px rgba(97,69,107,0.08);
+  --glass: rgba(255,255,255,0.6);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,var(--baby-blue), #fff);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+}
+
+.sparkles{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px);background-size:40px 40px;opacity:0.7;mix-blend-mode:screen;animation:float 10s linear infinite}
+@keyframes float{from{background-position:0 0}to{background-position:400px 400px}}
+
+.site-header{padding:24px 16px 8px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.title-wrap{max-width:70%}
+.site-title{font-family:'Baloo 2', 'Baloo', cursive;font-size:28px;margin:0;color:#5a2b54}
+.site-subtitle{margin:4px 0 0;font-size:13px;color:#7b6281}
+
+.top-nav{display:flex;gap:8px}
+.nav-btn{background:transparent;border:0;padding:8px 12px;border-radius:12px;cursor:pointer;font-size:14px}
+.nav-btn.active{background:linear-gradient(90deg,var(--lavender),var(--pink));box-shadow:var(--card-shadow);color:#44233a}
+
+main{padding:12px}
+.home-hero{display:flex;gap:18px;align-items:center;justify-content:space-between}
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.85),var(--glass));padding:20px;border-radius:16px;box-shadow:var(--card-shadow);max-width:720px}
+.hero-card h2{margin:0 0 8px;font-family:'Baloo 2';color:#5a2b54}
+.hero-actions{margin-top:12px;display:flex;gap:10px}
+.primary{background:linear-gradient(90deg,var(--pink),var(--baby-blue));border:0;padding:10px 14px;border-radius:12px;color:#3a1d33;cursor:pointer}
+.ghost{background:transparent;border:1px solid rgba(90,43,84,0.06);padding:10px 14px;border-radius:12px}
+
+.container{padding:12px}
+.pattern-surface{width:240px;height:240px;border-radius:16px;box-shadow:var(--card-shadow);background-size:cover;background-position:center;flex-shrink:0}
+.pattern-surface:before{content:"";display:block;width:100%;height:100%;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.05));}
+.controls{display:flex;justify-content:flex-end;margin-bottom:12px}
+.controls #searchInput{width:100%;max-width:320px;padding:10px 12px;border-radius:12px;border:1px solid rgba(90,43,84,0.06);background:linear-gradient(90deg,#fff,#fffaf5);box-shadow:var(--card-shadow);font-size:14px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+
+.import-export h4{margin:8px 0 6px}
+.import-export p{margin:0 0 8px;color:#7b6281}
+
+/* Toast notification */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:linear-gradient(90deg,#fff,#fffaf5);padding:10px 16px;border-radius:999px;box-shadow:0 8px 20px rgba(80,46,80,0.12);color:#4a2d43;font-weight:600;display:none}
+.toast.show{display:block;animation:toast-in .36s ease}
+@keyframes toast-in{from{transform:translateX(-50%) translateY(12px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+.card{background:var(--pink);padding:14px;border-radius:14px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:transform .18s ease,box-shadow .18s}
+.card:hover{transform:translateY(-6px) scale(1.02)}
+.card-img{width:110px;height:110px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:48px}
+.card-img img{width:86px;height:86px;border-radius:50%;object-fit:cover}
+.placeholder-emoji{width:86px;height:86px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,rgba(255,255,255,0.6),rgba(255,255,255,0.2));font-weight:700;color:#5a2b54}
+.card h3{margin:0;font-size:16px;color:#4a2d43}
+.card .meta{font-size:12px;color:#6e5a6e}
+.heart-btn{background:transparent;border:0;font-size:20px;cursor:pointer}
+.card-bday{font-size:12px;color:#7b6281;margin-top:-4px}
+
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(10,10,10,0.15),rgba(10,10,10,0.25));padding:20px}
+.modal[aria-hidden="false"]{display:flex}
+.modal-card{background:linear-gradient(180deg,#fff, #fffaf5);border-radius:14px;box-shadow:0 20px 40px rgba(80,46,80,0.15);max-width:900px;max-height:90vh;overflow:auto;padding:18px;position:relative}
+.close{position:absolute;right:12px;top:12px;background:transparent;border:0;font-size:20px;cursor:pointer}
+
+.detail-grid{display:grid;grid-template-columns:260px 1fr;gap:20px}
+.detail-img{width:240px;height:240px;border-radius:18px;background:linear-gradient(135deg,var(--lavender),var(--soft-yellow));display:flex;align-items:center;justify-content:center;font-size:84px}
+.detail-img img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.detail-placeholder{width:200px;height:200px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#fff,#f7efff);font-size:48px;color:#6b4a6b;font-weight:700}
+.detail h2{margin:0 0 6px;font-family:'Baloo 2'}
+.tag{background:rgba(255,255,255,0.6);padding:6px 10px;border-radius:999px;font-size:12px;color:#6a4a5b}
+.detail .birthday{font-size:13px;color:#5b415b;margin-top:6px}
+
+.info-section{margin-top:12px}
+.info-section h4{margin:8px 0 6px}
+.funfacts{background:linear-gradient(90deg,var(--baby-blue),var(--lavender));padding:10px;border-radius:10px}
+
+.about-card{background:linear-gradient(180deg,rgba(255,255,255,0.8),var(--glass));padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+
+.site-footer{padding:12px;text-align:center;color:#6b506b}
+.tiny-icons{font-size:18px}
+
+@media(max-width:800px){
+  .detail-grid{grid-template-columns:1fr}
+  .site-title{font-size:22px}
+  .cards-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+}
