@@ -38,8 +38,9 @@ main{padding:12px}
 .ghost{background:transparent;border:1px solid rgba(90,43,84,0.06);padding:10px 14px;border-radius:12px}
 
 .container{padding:12px}
-.pattern-surface{width:240px;height:240px;border-radius:16px;box-shadow:var(--card-shadow);background-size:cover;background-position:center;flex-shrink:0}
-.pattern-surface:before{content:"";display:block;width:100%;height:100%;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.05));}
+.pattern-surface{width:240px;height:240px;border-radius:16px;box-shadow:var(--card-shadow);background-size:cover;background-position:center;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pattern-surface:before{content:"";display:block;position:absolute;width:100%;height:100%;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.05));pointer-events:none}
+.hero-image{width:100%;height:100%;object-fit:cover;border-radius:16px;position:relative;z-index:1}
 .controls{display:flex;justify-content:flex-end;margin-bottom:12px}
 .controls #searchInput{width:100%;max-width:320px;padding:10px 12px;border-radius:12px;border:1px solid rgba(90,43,84,0.06);background:linear-gradient(90deg,#fff,#fffaf5);box-shadow:var(--card-shadow);font-size:14px}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
